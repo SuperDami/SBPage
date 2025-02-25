@@ -30,19 +30,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		521F08CE2D6AC3630062A2D1 /* SBPage */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SBPage;
-			sourceTree = "<group>";
-		};
 		521F08DF2D6AC3650062A2D1 /* SBPageTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SBPageTests;
 			sourceTree = "<group>";
 		};
-		521F08E92D6AC3650062A2D1 /* SBPageUITests */ = {
+		521F091E2D6C0A2C0062A2D1 /* SBPage */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SBPageUITests;
+			path = SBPage;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +70,8 @@
 		521F08C32D6AC3630062A2D1 = {
 			isa = PBXGroup;
 			children = (
-				521F08CE2D6AC3630062A2D1 /* SBPage */,
+				521F091E2D6C0A2C0062A2D1 /* SBPage */,
 				521F08DF2D6AC3650062A2D1 /* SBPageTests */,
-				521F08E92D6AC3650062A2D1 /* SBPageUITests */,
 				521F08CD2D6AC3630062A2D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,7 +102,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				521F08CE2D6AC3630062A2D1 /* SBPage */,
+				521F091E2D6C0A2C0062A2D1 /* SBPage */,
 			);
 			name = SBPage;
 			packageProductDependencies = (
@@ -152,9 +146,6 @@
 			);
 			dependencies = (
 				521F08E82D6AC3650062A2D1 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				521F08E92D6AC3650062A2D1 /* SBPageUITests */,
 			);
 			name = SBPageUITests;
 			packageProductDependencies = (

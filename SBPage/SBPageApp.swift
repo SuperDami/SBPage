@@ -6,7 +6,7 @@ import SwiftUI
 struct SBPageApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ActivityView()
         }
     }
 }
