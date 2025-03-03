@@ -9,7 +9,7 @@ struct ActivityBar: Identifiable, Equatable {
 }
 
 @MainActor
-class ActivityViewModel: ObservableObject {
+class WelcomeViewModel: ObservableObject {
     private struct Constants {
         static let secondToNano: Double = 1_000_000_000
     }

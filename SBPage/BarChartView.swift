@@ -8,23 +8,28 @@ struct BarChartView: View {
     var body: some View {
         GeometryReader { geometry in
             let totalWidth = geometry.size.width
-            let fullBarHeight = geometry.size.height - 90
-            let spacing = totalWidth * 0.1
-            let barWidth = activityBars.count > 0
-            ? (totalWidth - spacing * CGFloat(activityBars.count + 1)) / CGFloat(activityBars.count)
-            : 0
-
+            let fullBarHeight = geometry.size.height * 0.925
+            let scale = geometry.size.height / 325
+            let barWidth = totalWidth * 0.17
+            let spacing = CGFloat(totalWidth - barWidth * CGFloat(activityBars.count)) / CGFloat(activityBars.count - 1)
+            let robotWidthScale = 0.7
+            let robotAspect = 1.175
+            let robotWidth = totalWidth * robotWidthScale
+            let robotHeight = robotWidth / robotAspect
+            let titleFontSize: CGFloat = geometry.size.height * 0.03
             ZStack(alignment: .topLeading) {
                 HStack(alignment: .top, spacing: 50) {
                     Image("protty")
                         .resizable()
-                        .frame(width: 188, height: 160)
+                        .frame(width: robotWidth, height: robotHeight)
+                        .offset(x: -robotWidth * 0.2, y: -robotHeight * 0.28)
                 }
 
                 HStack(alignment: .bottom, spacing: spacing) {
                     ForEach(activityBars.indices, id: \.self) { i in
                         VStack {
                             Spacer()
+                                .frame(maxHeight: .infinity)
                             Rectangle()
                                 .fill(
                                     LinearGradient(
@@ -41,16 +46,15 @@ struct BarChartView: View {
                                     isAnimate ? .easeInOut(duration: 0.8).delay(Double(i) * 0.1) : nil,
                                     value: isAnimate
                                 )
-                                .specificCornerRadius(2, corners: [.topLeft, .topRight])
+                                .specificCornerRadius(2 * scale, corners: [.topLeft, .topRight])
 
                             Text(activityBars[i].title)
-                                .font(.system(size: 12, weight: .bold))
+                                .font(.system(size: titleFontSize, weight: .bold))
                                 .foregroundColor(.black)
                         }
                     }
                 }
-                .padding(.top, 60)
-                .padding(.leading, spacing)
+                .frame(maxHeight: .infinity)
             }
         }
     }
@@ -60,13 +64,13 @@ struct BarChartView: View {
     VStack {
         BarChartView(
             activityBars: [
-                .init(title: "first", volume: 0.2),
-                .init(title: "second", volume: 1.0),
-                .init(title: "third", volume: 0.8),
-                .init(title: "fourth", volume: 1.0)
+                .init(title: "現在", volume: 0.22),
+                .init(title: "3ヶ月", volume: 0.33),
+                .init(title: "1年", volume: 0.8),
+                .init(title: "2年", volume: 1.0)
             ],
             isAnimate: true
         )
-        .frame(width: 300, height: 300)
+        .frame(width: 270, height: 325)
     }
 }
