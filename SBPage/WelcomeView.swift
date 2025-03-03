@@ -48,7 +48,6 @@ struct WelcomeView: View {
             GeometryReader { geometry in
                 let contentHeight = geometry.size.height - geometry.safeAreaInsets.top - geometry.safeAreaInsets.bottom
                 let scale = contentHeight / 800.0
-                let totalMargin: CGFloat = contentHeight * 0.1875
                 let chartAreaHeight: CGFloat = contentHeight * 0.5
                 let chartAreaWidth: CGFloat = chartAreaHeight * 0.83
 
