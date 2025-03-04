@@ -7,18 +7,17 @@ struct BarChartView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            let totalWidth = geometry.size.width
-            let fullBarHeight = geometry.size.height * 0.925
-            let scale = geometry.size.height / 325
-            let barWidth = totalWidth * 0.17
-            let spacing = CGFloat(totalWidth - barWidth * CGFloat(activityBars.count)) / CGFloat(activityBars.count - 1)
+            let scale = geometry.size.height / 325.0
+            let fullBarHeight = 300.0 * scale
+            let barWidth = 48.0 * scale
+            let spacing = CGFloat(geometry.size.width - barWidth * CGFloat(activityBars.count)) / CGFloat(activityBars.count - 1)
             let robotWidthScale = 0.7
             let robotAspect = 1.175
-            let robotWidth = totalWidth * robotWidthScale
+            let robotWidth = geometry.size.width * robotWidthScale
             let robotHeight = robotWidth / robotAspect
-            let titleFontSize: CGFloat = geometry.size.height * 0.03
+            let titleFontSize = 12 * scale
             ZStack(alignment: .topLeading) {
-                HStack(alignment: .top, spacing: 50) {
+                HStack(alignment: .top) {
                     Image("protty")
                         .resizable()
                         .frame(width: robotWidth, height: robotHeight)

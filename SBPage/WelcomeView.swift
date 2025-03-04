@@ -26,11 +26,10 @@ struct WelcomeView: View {
             )
             .ignoresSafeArea()
 
-            // Close button could replay animation
             VStack {
                 HStack {
                     Spacer()
-                    Button(action: viewModel.replayAnimation) {
+                    Button(action: {}) {
                         Image(systemName: "xmark.circle.fill")
                             .resizable()
                             .frame(width: 38, height: 38)
@@ -48,19 +47,19 @@ struct WelcomeView: View {
             GeometryReader { geometry in
                 let contentHeight = geometry.size.height - geometry.safeAreaInsets.top - geometry.safeAreaInsets.bottom
                 let scale = contentHeight / 800.0
-                let chartAreaHeight: CGFloat = contentHeight * 0.5
-                let chartAreaWidth: CGFloat = chartAreaHeight * 0.83
+                let chartAreaHeight = contentHeight * 0.5
+                let chartAreaWidth = chartAreaHeight * 0.83
 
-                let mainTitleSize: CGFloat = 36 * scale
-                let subTitleFirstSize: CGFloat = 20 * scale
-                let subTitleSecondSize: CGFloat = 30 * scale
-                let buttonTitleSize: CGFloat = 16 * scale
+                let mainTitleSize = 36 * scale
+                let subTitleFirstSize = 20 * scale
+                let subTitleSecondSize = 30 * scale
+                let buttonTitleSize = 16 * scale
 
                 VStack(spacing: 0) {
                     Spacer()
                     Text("Hello\nSpeakBUDDY")
                         .font(.system(size: mainTitleSize, weight: .bold))
-                        .lineSpacing(8)
+                        .lineSpacing(8 * scale)
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 85 * scale)
 
