@@ -28,6 +28,7 @@ struct WelcomeView: View {
 
             VStack {
                 HStack {
+                    // I Prefer to have fix size and padding for this button
                     Spacer()
                     Button(action: {}) {
                         Image(systemName: "xmark.circle.fill")
