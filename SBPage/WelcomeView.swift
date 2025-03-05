@@ -13,6 +13,10 @@ struct WelcomeView: View {
             Color.init(hex: "#0075FF")
         ]
         static let mainButtonColor = Color.init(hex: "#3BA7FF")
+        static let closeBtnSize: CGFloat = 38
+        static let standardContentHeight: CGFloat = 800.0
+        static let chatAreaHeightPrecentage: CGFloat = 0.5
+        static let chatAreaAspectRatio: CGFloat = 1.203
     }
 
     @ObservedObject private var viewModel: WelcomeViewModel = .init()
@@ -33,7 +37,7 @@ struct WelcomeView: View {
                     Button(action: {}) {
                         Image(systemName: "xmark.circle.fill")
                             .resizable()
-                            .frame(width: 38, height: 38)
+                            .frame(width: Constants.closeBtnSize, height: Constants.closeBtnSize)
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(.black, .white)
                             .foregroundColor(.white)
@@ -47,9 +51,9 @@ struct WelcomeView: View {
 
             GeometryReader { geometry in
                 let contentHeight = geometry.size.height - geometry.safeAreaInsets.top - geometry.safeAreaInsets.bottom
-                let scale = contentHeight / 800.0
-                let chartAreaHeight = contentHeight * 0.5
-                let chartAreaWidth = chartAreaHeight * 0.83
+                let scale = contentHeight / Constants.standardContentHeight
+                let chartAreaHeight = contentHeight * Constants.chatAreaHeightPrecentage
+                let chartAreaWidth = chartAreaHeight / Constants.chatAreaAspectRatio
 
                 let mainTitleSize = 36 * scale
                 let subTitleFirstSize = 20 * scale

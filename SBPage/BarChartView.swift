@@ -2,6 +2,15 @@
 import SwiftUI
 
 struct BarChartView: View {
+    private struct Constants {
+        static let robotWidthScale = 0.7
+        static let robotAspect = 0.851
+        static let barGradientColors = [
+            Color.init(hex: "#58C0FF"),
+            Color.init(hex: "#1F8FFF")
+        ]
+    }
+
     let activityBars: [ActivityBar]
     let isAnimate: Bool
 
@@ -11,10 +20,8 @@ struct BarChartView: View {
             let fullBarHeight = 300.0 * scale
             let barWidth = 48.0 * scale
             let spacing = CGFloat(geometry.size.width - barWidth * CGFloat(activityBars.count)) / CGFloat(activityBars.count - 1)
-            let robotWidthScale = 0.7
-            let robotAspect = 1.175
-            let robotWidth = geometry.size.width * robotWidthScale
-            let robotHeight = robotWidth / robotAspect
+            let robotWidth = geometry.size.width * Constants.robotWidthScale
+            let robotHeight = robotWidth * Constants.robotAspect
             let titleFontSize = 12 * scale
             ZStack(alignment: .topLeading) {
                 HStack(alignment: .top) {
@@ -32,10 +39,7 @@ struct BarChartView: View {
                             Rectangle()
                                 .fill(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [
-                                            Color.init(hex: "#58C0FF"),
-                                            Color.init(hex: "#1F8FFF")
-                                        ]),
+                                        gradient: Gradient(colors: Constants.barGradientColors),
                                         startPoint: .top,
                                         endPoint: .bottom
                                     )
